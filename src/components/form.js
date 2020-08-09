@@ -16,14 +16,16 @@ titleHandler = (e) => {
 }
     render(){
         return <div className="form-container"> 
-            <form onSubmit={this.props.addTodo(this.state.title)}>
+            <form onSubmit={e => {
+                this.props.addTodo(e, this.state.title)
+                this.setState({title:""})}}>
                 <input 
                 name="title"
                 value={this.state.title} 
                 type="text" 
-                placeholder="Add a new todo item..."
+                placeholder="Additional Expenses"
                 onChange={(e) => this.titleHandler(e)}/>
-                <button>Add Todo</button>
+                <button>Add Expense</button>
             </form>
         </div>
     }

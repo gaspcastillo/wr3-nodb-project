@@ -35,6 +35,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .todo-title{
@@ -44,3 +45,11 @@ body {
   font-family:  'Roboto', sans-serif;
 }
 
+.btn-container {
+  display: flex;
+  position: relative;
+}
+
+.todo-btn{
+ margin-left: 5px;
+}
