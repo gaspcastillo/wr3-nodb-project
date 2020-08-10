@@ -2,16 +2,19 @@
     {
         "id": 1,
         "title": "Groceries",
-        "completed": false
+        "completed": false, 
+        "balance" : 100.20
     },
     {
         "id": 2,
         "title": "Insurance",
-        "completed": false
+        "completed": false, 
+        "balance" : 100.30
     },
     {
         "id": 3,
         "title": "Rent",
-        "completed": false
+        "completed": false,
+        "balance" : 100.40
     } 
 ] 

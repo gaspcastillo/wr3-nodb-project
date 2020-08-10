@@ -1,5 +1,5 @@
 const todos = require('./todos.json');
-const { default: List } = require('../src/components/List');
+// const { default: List } = require('../src/components/List');
 let id = 4;
 
 module.exports = {
@@ -7,18 +7,19 @@ module.exports = {
         res.status(200).send(todos);
     },
     addTodo: (req, res) => {
-        const { title } = req.body;
+        const { title, balance } = req.body;
         if (!title) {
-            res,status(405).send('Expected to receive a title for the todo')
+            res.status(405).send('Expected to receive a title for the todo')
         } else {
             const newTodo = {
                 id, 
                 title,
-                completed: false
+                completed: false,
+                balance,
             };
             todos.push(newTodo);
             id++;
-            res,status(200).send(todos);
+            res.status(200).send(todos);
           }
         }, 
         deleteTodo: (req, res) => {

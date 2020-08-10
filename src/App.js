@@ -10,7 +10,8 @@ class App extends Component {
 constructor(){
   super();
   this.state = {
-    todos: []
+    todos: [],
+    budget:""
   }
   this.addTodo = this.addTodo.bind(this);
   this.deleteTodo = this.deleteTodo.bind(this);
@@ -31,9 +32,9 @@ getTodos = () => {
   ).catch( err => console.log(err))
 };
 
-addTodo = (e, title) => {
+addTodo = (e, title, balance) => {
   e.preventDefault()
-  axios.post('/api/todos',{title})
+  axios.post('/api/todos',{title, balance})
   .then( res => {
     this.setState({
       todos: res.data
@@ -59,6 +60,11 @@ completeTodo = (id) => {
   }).catch( err => console.log(err))
 }
 
+budgetHandler = (event) => {
+  this.setState({
+    budget: event.target.value
+  })
+}
 
   render(){
     const completedTasks = this.state.todos.reduce((acc, cur) => {
@@ -68,8 +74,8 @@ completeTodo = (id) => {
   return (
     <div >
       <Header completed = {completedTasks}/>
-      <Form addTodo={this.addTodo}/>
-      <List completeTodo= {this.completeTodo} deleteTodo={this.deleteTodo} todos={this.state.todos}/>
+      <Form addTodo= {this.addTodo}/>
+      <List budget= {this.state.budget} budgetHandler = {this.budgetHandler} completeTodo= {this.completeTodo} deleteTodo={this.deleteTodo} todos={this.state.todos}/>
     </div>
   )};
 };
